@@ -1,4 +1,4 @@
-<h1 align="center"><a href="https://docs.mongodb.com/manual/crud/">MongoDB with PHP Cheatsheat</a></h1>
+<h1 align="center"><a href="https://docs.mongodb.com/php-library/current/reference/">MongoDB with PHP Cheatsheat</a></h1>
 
 ## Terminologies
 |<center>RDBMS</center> |<center>MongoDB</center>
@@ -45,6 +45,7 @@ $collection = (new MongoDB\Client)->dbname->collectionName;
 ```php
  $cursor = $collection->find();
 ```
+
 Iterate using for loop
 
 > ``$collection->find().pretty()`` will display documents in pretty format.
@@ -55,6 +56,8 @@ Similar to <i>Select * from table where attribute = value</i>
 
 ```php
  $cursor = $collection->findOne(array('email'=>$email));
+ $cursor = $collection->find({ status: "A" }, { item: 1, status: 1 }) //similar to Select item,status from table where status='A'
+ //if any field:0, that field will not be shown
 ```
 ``$cursor["attributename"]`` will give value of that attribute</b> <br>
 
