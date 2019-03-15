@@ -93,6 +93,16 @@ $res=$coll->insertMany([
 		['email'=>'xyz@abc.com','password'=>'111']]);
 ```
 
+* <b> Update by ObjectId </b>
+```php
+$res=$coll->updateOne(
+	['_id' => new \MongoDB\BSON\ObjectID('5c8bcd07936ec82228620c73')],
+        [ '$set' => [
+          	'email'=>['blabla@bla.com']
+          	]
+	));
+```
+
 * <b> Delete Document </b>
 ```php
 $var= $collection->deleteOne( ["username"=>"admin"]);
