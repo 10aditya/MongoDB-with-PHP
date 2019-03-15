@@ -61,13 +61,19 @@ Similar to <i>Select * from table where attribute = value</i>
 ```
 ``$cursor["attributename"]`` will give value of that attribute</b> <br>
 
+* ``limit(n)`` will return only n documents
+
 ```php
 $cursor = $collection->find(array('email'=>'admin@example.com'));
 foreach ($cursor as $key){
 echo $key['email'];
 }
 ```
-
+* <b> Get documnet(s) based on multiple fields </b>
+```php
+$res = $coll->find(['email'=>'abc@xyz.com','password'=>'123']);
+//iterate using for loop
+```
 * <b> Insert Document </b>
 ```php
 $result = $collection->insertOne([
