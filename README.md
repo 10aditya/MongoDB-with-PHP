@@ -25,3 +25,20 @@ $db = $client->dbname;
 ```php
 $collection = $db->collname;
 ```
+
+## Queries
+* <b> Get all documents </b>
+```php
+ $cursor = $collection->find();
+```
+Iterate using for loop
+
+* <b> Get particular documents </b>
+Similar to <i>Select * from table where attribute = value</i>
+
+```php
+ $cursor = $collection->findOne(array('email'=>$email));
+```
+
+``$cursor["attributename"]`` will give value of that attribute</b> 
+
