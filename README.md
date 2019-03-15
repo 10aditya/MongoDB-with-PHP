@@ -1,11 +1,10 @@
-<h1 align="center"><a href="#">MongoDB with PHP Cheatsheat</a></h1>
+<h1 align="center"><a href="https://docs.mongodb.com/manual/crud/">MongoDB with PHP Cheatsheat</a></h1>
 
 ## Terminologies
 |<center>RDBMS</center> |<center>MongoDB</center>
-| :------------- | :------------- | 
-
-|RDBMS	|MongoDB
-|Database	|Database
+|:------------- |:-------------
+|RDBMS|MongoDB
+|Database|Database
 |Table	|Collection
 |Tuple/Row	|Document
 |column|	Field
@@ -48,15 +47,23 @@ $collection = (new MongoDB\Client)->dbname->collectionName;
 ```
 Iterate using for loop
 
-* <b> Get particular documents </b><br>
+> ``$collection->find().pretty()`` will display documents in pretty format.
+
+* <b> Get document(s) based on a single field </b><br>
 
 Similar to <i>Select * from table where attribute = value</i>
 
 ```php
  $cursor = $collection->findOne(array('email'=>$email));
 ```
+``$cursor["attributename"]`` will give value of that attribute</b> <br>
 
-``$cursor["attributename"]`` will give value of that attribute</b> 
+```php
+$cursor = $collection->find(array('email'=>'admin@example.com'));
+foreach ($cursor as $key){
+echo $key['email'];
+}
+```
 
 * <b> Insert Document </b>
 ```php
@@ -68,3 +75,28 @@ $result = $collection->insertOne([
 ```
 > ``$result->getInsertedCount()`` will return the number of documents inserted.
 
+* <b> Insert Multiple Documents </b>
+```php
+$res=$coll->insertMany([
+		['email'=>'abc@xyz.com','password'=>'123'],
+		['email'=>'abc@xyz.com','password'=>'111'],
+		['email'=>'xyz@abc.com','password'=>'123'],
+		['email'=>'xyz@abc.com','password'=>'111']]);
+```
+
+* <b> Delete Document </b>
+```php
+$var= $collection->deleteOne( ["username"=>"admin"]);
+echo $var->getDeletedCount();
+```
+
+* <b>Delete Multiple Documents </b>
+```php
+$var= $collection->deleteMany( ["username"=>"admin"]);
+```
+> ``$var->getDeletedCount()`` will return the number of documents deleted.
+
+* <b> Count </b>
+```php
+$c = $coll->count();
+```
