@@ -1,5 +1,15 @@
 <h1 align="center"><a href="#">MongoDB with PHP Cheatsheat</a></h1>
 
+## Terminologies
+| <center>RDBMS</center> | <center>MongoDB</center>
+	| :------------- | :------------- | 
+
+	|RDBMS	|MongoDB
+	|Database	|Database
+	|Table	|Collection
+	|Tuple/Row	|Document
+	|column|	Field
+	|Primary Key	|Primary Key (Default key _id provided by mongodb itself)
 ## Install Composer
 
 ```sh
@@ -56,3 +66,4 @@ $result = $collection->insertOne([
 ]);
 ```
 > ``$result->getInsertedCount()`` will return the number of documents inserted.
+
