@@ -2,10 +2,9 @@
 
 ## Terminologies
 |<center>RDBMS</center> |<center>MongoDB</center>
-| :------------- | :------------- | 
-
-|RDBMS	|MongoDB
-|Database	|Database
+|:------------- |:-------------
+|RDBMS|MongoDB
+|Database|Database
 |Table	|Collection
 |Tuple/Row	|Document
 |column|	Field
