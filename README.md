@@ -25,6 +25,10 @@ $db = $client->dbname;
 ```php
 $collection = $db->collname;
 ```
+## Shorthand Selection
+```php
+$collection = (new MongoDB\Client)->dbname->collectionName;
+```
 
 ## Queries
 * <b> Get all documents </b>
@@ -33,7 +37,8 @@ $collection = $db->collname;
 ```
 Iterate using for loop
 
-* <b> Get particular documents </b>
+* <b> Get particular documents </b><br>
+
 Similar to <i>Select * from table where attribute = value</i>
 
 ```php
@@ -42,3 +47,12 @@ Similar to <i>Select * from table where attribute = value</i>
 
 ``$cursor["attributename"]`` will give value of that attribute</b> 
 
+* <b> Insert Document </b>
+```php
+$result = $collection->insertOne([
+    'username' => 'admin',
+    'email' => 'admin@example.com',
+    'name' => 'Admin User',
+]);
+```
+> ``$result->getInsertedCount()`` will return the number of documents inserted.
